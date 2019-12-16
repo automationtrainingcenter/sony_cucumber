@@ -16,9 +16,9 @@ Feature: As a admin I want to do login so that I can see welcome to admin with l
     Then admin can see an error message saying invalid banker name or password
 
   Scenario: login with invalid password
-    When admin enter valid username
+    When admin enters valid username
     But admin enters invalid password
-    And click on login button
+    And admin click on login button
     Then admin can see an error message saying invalid banker name or password
 
   Scenario: login with blank data

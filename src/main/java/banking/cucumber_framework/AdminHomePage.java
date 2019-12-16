@@ -49,5 +49,10 @@ public class AdminHomePage {
 		this.logout.click();
 		return new BankHomePage(driver);
 	}
+	
+	// validate admin home page is displayed or not
+	public boolean isAdminHomePageDisplayed() {
+		return this.logout.isDisplayed() && driver.getTitle().contains("Primus BANK");
+	}
 
 }
