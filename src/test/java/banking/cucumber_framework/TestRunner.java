@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @CucumberOptions(
-		features= {"src/test/java/features"},
+		features= {"src/test/java/features/branchCreate.feature"},
 		glue = {"stepdefinitions"},
 		dryRun= false,
 		monochrome = true,

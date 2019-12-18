@@ -1,6 +1,6 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/features/login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/features/branchCreate.feature");
 formatter.feature({
-  "name": "As a admin I want to do login so that I can see welcome to admin with logout link",
+  "name": "branch creation with valid and invalid data",
   "description": "",
   "keyword": "Feature"
 });
@@ -19,216 +19,74 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
-formatter.scenario({
-  "name": "login with valid credentials",
-  "description": "",
-  "keyword": "Scenario"
-});
 formatter.step({
-  "name": "admin enters valid username",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "LoginSteps.admin_enters_valid_username()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "admin enters valid password",
+  "name": "admin do login with valid credentials",
   "keyword": "And "
 });
 formatter.match({
-  "location": "LoginSteps.admin_enters_valid_password()"
+  "location": "BranchCreationSteps.admin_do_login_with_valid_credentials()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "admin click on login button",
+  "name": "admin click on branches button",
   "keyword": "And "
 });
 formatter.match({
-  "location": "LoginSteps.admin_click_on_login_button()"
+  "location": "BranchCreationSteps.admin_click_on_branches_button()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "admin can see welcome to admin message with logout link",
-  "keyword": "Then "
+  "name": "admin click on new branch button",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "LoginSteps.admin_can_see_welcome_to_admin_message_with_logout_link()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
-formatter.background({
-  "name": "",
-  "description": "",
-  "keyword": "Background"
-});
-formatter.step({
-  "name": "admin is in bank home page",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "LoginSteps.admin_is_in_bank_home_page()"
+  "location": "BranchCreationSteps.admin_click_on_new_branch_button()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "login with invalid username",
+  "name": "branch creation with invalid branch name",
   "description": "",
   "keyword": "Scenario"
 });
 formatter.step({
-  "name": "admin enters invalid username",
+  "name": "admin enters invalid branchName then admin can see an error message",
+  "rows": [
+    {
+      "cells": [
+        "brName"
+      ]
+    },
+    {
+      "cells": [
+        "branch@"
+      ]
+    },
+    {
+      "cells": [
+        "branch*"
+      ]
+    },
+    {
+      "cells": [
+        "branch\u0026"
+      ]
+    },
+    {
+      "cells": [
+        "branch!"
+      ]
+    }
+  ],
   "keyword": "When "
 });
 formatter.match({
-  "location": "LoginSteps.admin_enters_invalid_username()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "admin enters valid password",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "LoginSteps.admin_enters_valid_password()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "admin click on login button",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "LoginSteps.admin_click_on_login_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "admin can see an error message saying invalid banker name or password",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "LoginSteps.admin_can_see_an_error_message_saying_invalid_banker_name_or_password()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
-formatter.background({
-  "name": "",
-  "description": "",
-  "keyword": "Background"
-});
-formatter.step({
-  "name": "admin is in bank home page",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "LoginSteps.admin_is_in_bank_home_page()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "login with invalid password",
-  "description": "",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "name": "admin enters valid username",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "LoginSteps.admin_enters_valid_username()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "admin enters invalid password",
-  "keyword": "But "
-});
-formatter.match({
-  "location": "LoginSteps.admin_enters_invalid_password()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "admin click on login button",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "LoginSteps.admin_click_on_login_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "admin can see an error message saying invalid banker name or password",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "LoginSteps.admin_can_see_an_error_message_saying_invalid_banker_name_or_password()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
-formatter.background({
-  "name": "",
-  "description": "",
-  "keyword": "Background"
-});
-formatter.step({
-  "name": "admin is in bank home page",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "LoginSteps.admin_is_in_bank_home_page()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "login with blank data",
-  "description": "",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "name": "admin click on login button",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "LoginSteps.admin_click_on_login_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "admin can see an error message saying please fill  username and password",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "LoginSteps.admin_can_see_an_error_message_saying_please_fill_username_and_password()"
+  "location": "BranchCreationSteps.admin_enters_invalid_branchName_then_admin_can_see_an_error_message(DataTable)"
 });
 formatter.result({
   "status": "passed"

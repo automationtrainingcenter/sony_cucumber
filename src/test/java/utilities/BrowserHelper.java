@@ -6,7 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserHelper {
 
-	protected WebDriver driver;
+	protected static WebDriver driver;
 
 	public void openBrowser(String browserName, String url) {
 		if (browserName.equalsIgnoreCase("chrome")) {
