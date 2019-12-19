@@ -1,0 +1,35 @@
+[
+{
+	"branchName":"jsonOne",
+	"address1":"any address",
+	"zipcode":"54643",
+	"country":"INDIA",
+	"state":"GOA",
+	"city":"GOA"
+},
+{
+	"branchName":"jsonTwo",
+	"address1":"some address",
+	"zipcode":"65432",
+	"country":"INDIA",
+	"state":"GOA",
+	"city":"GOA"
+},
+{
+	"branchName":"jsonThree",
+	"address1":"new address",
+	"zipcode":"12345",
+	"country":"INDIA",
+	"state":"GOA",
+	"city":"GOA"
+},
+{
+	"branchName":"jsonFour",
+	"address1":"ADDress",
+	"zipcode":"12333",
+	"country":"INDIA",
+	"state":"GOA",
+	"city":"GOA"
+}
+
+]

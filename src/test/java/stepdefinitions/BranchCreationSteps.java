@@ -1,5 +1,10 @@
 package stepdefinitions;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +19,10 @@ import banking.cucumber_framework.BranchDetailsPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import gherkin.deps.com.google.gson.Gson;
 import io.cucumber.datatable.DataTable;
 import utilities.BrowserHelper;
+import utilities.GenericHelper;
 
 public class BranchCreationSteps extends BrowserHelper {
 
@@ -99,5 +106,36 @@ public class BranchCreationSteps extends BrowserHelper {
 			
 		}
 	}
+	
+	@When("admin clicks reset button after filling branch creation form by takin data from {string}")
+	public void admin_clicks_reset_button_after_filling_branch_creation_form_by_takin_data_from(String fileName) {
+		try {
+			FileReader reader = new FileReader(GenericHelper.getFilePath("resources", fileName)); 
+			Gson gson = new Gson();
+			BranchData[] branches = gson.fromJson(reader, BranchData[].class);
+			for(BranchData branch : branches) {
+				branchCreationPage.fillBranchName(branch.getBranchName());
+				branchCreationPage.fillAddress1(branch.getAddress1());
+				branchCreationPage.fillZipcode(branch.getZipcode());
+				branchCreationPage.selectCountry(branch.getCountry());
+				branchCreationPage.selectState(branch.getState());
+				branchCreationPage.selectCity(branch.getCity());
+				branchCreationPage.clickReset();
+				Thread.sleep(3000);
+				Assert.assertTrue(branchCreationPage.isFormReset());	
+				
+			}
+		
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+	@Then("admin can see an empty form")
+	public void admin_can_see_an_empty_form() {
+	    
+	}
+
 
 }

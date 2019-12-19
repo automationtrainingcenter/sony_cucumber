@@ -103,4 +103,9 @@ public class BranchCreationPage {
 		this.cancel.click();
 		return PageFactory.initElements(driver, BranchDetailsPage.class);
 	}
+	
+	// verify form is reset or not
+	public boolean isFormReset() {
+		return JavaScriptHelper.getElementText(driver, this.branchName).isEmpty();
+	}
 }
