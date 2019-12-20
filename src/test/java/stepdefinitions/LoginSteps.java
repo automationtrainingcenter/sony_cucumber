@@ -1,16 +1,28 @@
 package stepdefinitions;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
+
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.PageFactory;
+
+import com.google.common.io.Files;
 
 import banking.cucumber_framework.AdminHomePage;
 import banking.cucumber_framework.BankHomePage;
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
+import cucumber.api.java.AfterStep;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilities.BrowserHelper;
+import utilities.ScreenshotHelper;
 
 public class LoginSteps extends BrowserHelper{
 	BankHomePage bankHomePage;
@@ -51,7 +63,7 @@ public class LoginSteps extends BrowserHelper{
 		Alert alert = driver.switchTo().alert();
 		String text = alert.getText().toLowerCase();
 		alert.accept();
-		Assert.assertTrue(text.contains("incorrect"));
+		Assert.assertTrue(text.contains("incorrectxyz"));
 	}
 
 
@@ -68,6 +80,28 @@ public class LoginSteps extends BrowserHelper{
 		String text = alert.getText().toLowerCase();
 		alert.accept();
 		Assert.assertTrue(text.contains("please fill in the"));
+	}
+	
+	
+	@AfterStep
+	public void afterStepEvent(Scenario scenario) {
+		if(scenario.isFailed()) {
+			// capture screenshot
+//			String imgPath = ScreenshotHelper.captureScreenshot(driver, "screenshots", scenario.getName());
+//			File file = new File(imgPath);
+//			byte[] bytes = null;
+//			try {
+//				bytes = Files.toByteArray(file);
+//				System.out.println("adding image "+file.getAbsolutePath()+" to the report");
+//				scenario.embed(bytes, "image/png");
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}		
+			
+			byte[] imgArr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			scenario.embed(imgArr, "image/png");
+		}
 	}
 	
 	@After
